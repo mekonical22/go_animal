@@ -24,4 +24,26 @@ func main() {
 	http.ListenAndServe(":3000", nil)
 }
 
-var animalsData = [...]Animal{}
+var dog = &Animal{
+	Name: "Dog",
+	MaxAge: 13,
+	ColorPatterns: [][2]string{
+		{"Black", "White"},
+		{"Black", "Black"},
+		{"Orange", "Black"},
+		{"Brown", "White"},
+	},
+}
+
+var cat = &Animal{
+	Name: "Cat",
+	MaxAge: 18,
+	ColorPatterns: [][2]string{
+		{"Orange", "Orange"},
+		{"Orange", "White"},
+		{"Gray", "Black"},
+		{"White", "Black"},
+	},
+}
+
+var animalsData = [...]Animal{*dog, *cat}
