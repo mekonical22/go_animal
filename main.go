@@ -2,13 +2,14 @@ package main
 
 import (
 	"encoding/json"
+	"math/rand"
 	"net/http"
 )
 
 func main() {
 	Index := func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
-			i := len(animalsData)-1
+			i := rand.Intn(len(animalsData)-1)
 			data := GetAnimalData(animalsData[i])
 
 			w.Header().Set("Content-Type", "application/json")
